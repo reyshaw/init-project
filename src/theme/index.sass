@@ -1,0 +1,14 @@
+// 构建数组
+$themes:()
+  $default-theme:()
+    @import "default/default-variable"
+  $dark-theme:()
+    @import "dark/dark-variable"
+  $light-theme:()
+    @import "light/light-variable"
+
+// 定义mixin
+@mixin base-background()
+  @each $themename , $theme in $themes
+    [data-theme = '#{$themename}'] &
+      background: map-get($map: $theme, $key: primary-color)

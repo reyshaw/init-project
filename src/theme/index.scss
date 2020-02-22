@@ -1,0 +1,38 @@
+// 默认主题(红)
+$default-theme : (
+        --primary-color: #F8F8F8,
+        --font-color: #666
+);
+//蓝色
+$dark-theme : (
+        --primary-color: #4827b6,
+        --font-color: #ccc
+);
+//绿色
+$light-theme : (
+        --primary-color: green,
+        --font-color: yellow
+);
+
+//定义映射集合
+$themes: (
+        default-theme: $default-theme,
+        dark-theme: $dark-theme,
+        light-theme: $light-theme
+);
+// 定义映射方法
+@mixin base-background(){
+  @each $themename , $theme in $themes {
+    [data-theme = '#{$themename}'] & {
+      background: map-get($map: $theme, $key: --primary-color );
+    }
+  }
+}
+
+@mixin base-font-color(){
+  @each $themename , $theme in $themes {
+    [data-theme = '#{$themename}'] & {
+      color: map-get($map: $theme, $key: --font-color );
+    }
+  }
+}

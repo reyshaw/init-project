@@ -1,0 +1,19 @@
+/*** customised ***/
+
+.content-center {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+.float-right {
+    float: right!important;
+}
+
+.float-left{
+    float: left!important;
+}
+
+.clearfix:after {
+    content: " ";
+    display: table;
+}
